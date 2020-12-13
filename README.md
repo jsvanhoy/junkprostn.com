@@ -1,2 +1,3 @@
 # junkprostn.com
-information site for business based on a vuetify template
+
+information site for a business based on a vuetify template
