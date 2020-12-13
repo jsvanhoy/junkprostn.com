@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JunkProsTN.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div
+        v-if="!loaded"
+        style="
+          position: absolute;
+          width: 100vw;
+          height: 100vh;
+          top: 0;
+          z-index: 999;
+          background-color: white;
+        "
+      ></div>
+      <v-app>
+        <v-app-bar app dark height="60">
+          <v-toolbar-title
+            style="cursor: pointer"
+            @click="$vuetify.goTo(0)"
+            class="font-weight-black headline"
+          >
+            Junk Pros of East Tennessee
+          </v-toolbar-title>
+        </v-app-bar>
+
+        <v-content>
+          <section id="hero">
+            <v-row no-gutters>
+              <v-img
+                :height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
+                src="https://images.unsplash.com/photo-1602140993159-0667b11ec4a1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80"
+              >
+                <v-theme-provider dark>
+                  <v-container
+                    class="pa-0 ma-0"
+                    style="
+                      background-color: rgba(0, 0, 0, 0.5);
+                      width: 100vw;
+                      max-width: 100%;
+                    "
+                    fill-height
+                  >
+                    <v-row
+                      align="center"
+                      class="white--text mx-auto"
+                      justify="center"
+                    >
+                      <v-col class="white--text text-center" cols="12" tag="h1">
+                        <span
+                          :class="[$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-2']"
+                          style="
+                            font-weight: bolder;
+                            -webkit-text-stroke-width: 1px;
+                            -webkit-text-stroke-color: black;
+                          "
+                        >
+                          Professional Junk
+                        </span>
+
+                        <br />
+
+                        <span
+                          :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']"
+                          class="font-weight-black"
+                          style="
+                            -webkit-text-stroke-width: 1px;
+                            -webkit-text-stroke-color: black;
+                          "
+                        >
+                          Removal Services
+                        </span>
+                      </v-col>
+
+                      <v-btn
+                        class="align-self-end"
+                        fab
+                        outlined
+                        @click="$vuetify.goTo('#about-me')"
+                      >
+                        <v-icon>mdi-chevron-double-down</v-icon>
+                      </v-btn>
+                    </v-row>
+                  </v-container>
+                </v-theme-provider>
+              </v-img>
+            </v-row>
+          </section>
+
+          <section id="about-me">
+            <div class="py-12"></div>
+
+            <v-container class="text-center">
+              <h2 class="display-2 font-weight-bold mb-3">ABOUT US</h2>
+
+              <v-responsive class="mx-auto mb-8" width="56">
+                <v-divider class="mb-1"></v-divider>
+
+                <v-divider></v-divider>
+              </v-responsive>
+
+              <v-responsive
+                class="mx-auto title font-weight-light mb-8"
+                max-width="900"
+              >
+                If you don’t have the time or the manpower to haul off your
+                unwanted goods, then a full junk removal service is probably
+                right for you! With professional removal teams based in both
+                Elizabethton and Greeneville, we cover all of East Tennessee and
+                the surrounding vicinities.
+                <br /><br />
+                You don’t have to face junk alone. It can be very overwhelming
+                to try to face such a large, time consuming challenge, so call
+                Junk Pro’s for professional help you can rely on. We’re ready to
+                come to you and help with removing furniture, commercial junk,
+                and any other kind of waste.
+                <br /><br />
+                You will find that our rates are reasonable, and you will be
+                completely satisfied with our efficiency and professionalism.
+                Sometimes, items can be donated to charity and we will be glad
+                to place the things you remove with a family who can use them.
+                And of course, we offer free estimates!
+                <br /><br />
+                Whether you’re trying to get your home in better condition
+                because you’re interested in selling your house, or are cleaning
+                out the property of a loved family member, getting professional
+                help is a great way to tackle all of the piles of junk or old
+                furniture you have. Instead of spending all of your time running
+                back and forth to the dump, call Junk Pro’s for this service and
+                you can rest easy knowing that all of your junk will be removed
+                quickly and efficiently, leaving you with a clean home that
+                you’ll love.
+              </v-responsive>
+
+              <v-btn
+                color="grey"
+                @click="$vuetify.goTo('#contact')"
+                outlined
+                large
+              >
+                <span class="grey--text text--darken-1 font-weight-bold">
+                  Contact Us
+                </span>
+              </v-btn>
+            </v-container>
+
+            <div class="py-12"></div>
+          </section>
+
+          <section id="features" class="grey lighten-3">
+            <div class="py-12"></div>
+
+            <v-container class="text-center">
+              <h2 class="display-2 font-weight-bold mb-3">Services</h2>
+
+              <v-responsive class="mx-auto mb-12" width="56">
+                <v-divider class="mb-1"></v-divider>
+
+                <v-divider></v-divider>
+              </v-responsive>
+
+              <v-row>
+                <v-col
+                  v-for="({ icon, title, text }, i) in features"
+                  :key="i"
+                  cols="12"
+                  md="6"
+                >
+                  <v-card style="height: 100%" color="grey lighten-5" flat>
+                    <v-theme-provider dark>
+                      <div>
+                        <v-avatar color="primary" size="88">
+                          <v-icon large v-text="icon"></v-icon>
+                        </v-avatar>
+                      </div>
+                    </v-theme-provider>
+
+                    <v-card-title
+                      class="justify-center font-weight-black text-uppercase"
+                      v-text="title"
+                    ></v-card-title>
+
+                    <v-card-text class="subtitle-1" v-text="text">
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-container>
+
+            <div class="py-12"></div>
+          </section>
+
+          <section id="stats">
+            <v-parallax
+              :height="$vuetify.breakpoint.smAndDown ? 700 : 500"
+              src="https://images.unsplash.com/photo-1582748298043-0c0d31aa506e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"
+            >
+            </v-parallax>
+          </section>
+
+          <v-sheet id="contact" color="#333333" dark tag="section" tile>
+            <div class="py-12"></div>
+
+            <v-container>
+              <h2
+                class="display-2 font-weight-bold mb-3 text-uppercase text-center"
+              >
+                Contact Us
+              </h2>
+
+              <v-responsive class="mx-auto mb-12" width="56">
+                <v-divider class="mb-1"></v-divider>
+
+                <v-divider></v-divider>
+              </v-responsive>
+
+              <v-theme-provider light>
+                <div style="width: 100%; text-align: center">
+                  <p style="font-size: 1.6em">
+                    We can be reached at
+                    <a href="tel:423-972-2534">(423)972-2534</a> or
+                    <a href="tel:423-915-6733">(423)915-6733</a>
+                    and if we cannot get to the phone, your call will be
+                    returned quickly.
+                  </p>
+                </div>
+              </v-theme-provider>
+            </v-container>
+
+            <div class="py-12"></div>
+          </v-sheet>
+        </v-content>
+
+        <v-footer class="justify-center" color="#292929" height="100">
+          <div
+            class="title font-weight-light grey--text text--lighten-1 text-center"
+          >
+            &copy; {{ (new Date()).getFullYear() }} — Junk Pros of East
+            Tennessee
+          </div>
+        </v-footer>
+      </v-app>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        vuetify: new Vuetify(),
+        data() {
+          return {
+            loaded: true,
+            features: [
+              {
+                icon: "mdi-spray-bottle",
+                title: "Full Home Clean-Out",
+                text: `We know how stressful it can be when a loved one dies, and cleaning out their home is
+not only time-consuming, but can be emotional as well. There’s no reason that you have
+to complete the task of junk removal by yourself. Not only will you have to miss work to
+complete this project, but tensions are sure to run high between family members. When
+you hire us to come and do the job for you, you can rest easy knowing that the home
+will be cleaned out, all of your unwanted items will be gone, and you’ll be left with family
+heirlooms and treasure.`,
+              },
+              {
+                icon: "mdi-washing-machine",
+                title: "Appliance Removal",
+                text: `Hauling your old appliances to the dump is a pain. We are happy to remove them for
+you with our appliance team, and we will recycle every appliance item we pick up. We know how important it is to take care of the environment, and our employees are trained
+on how to carefully remove appliances and recycle them. We even have the ability to
+remove unwanted hot tubs from your property.`,
+              },
+            ],
+          };
+        },
+      });
+    </script>
+  </body>
+</html>
