@@ -31,13 +31,13 @@
         "
       ></div>
       <v-app>
-        <v-app-bar app dark height="60">
+        <v-app-bar app color="black" height="60">
           <v-toolbar-title
-            style="cursor: pointer"
+            style="cursor: pointer; color: #fc9403"
             @click="$vuetify.goTo(0)"
             class="font-weight-black headline"
           >
-            Junk Pros of East Tennessee
+            Junk Pro's of East Tennessee
           </v-toolbar-title>
         </v-app-bar>
 
@@ -81,6 +81,7 @@
                           :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']"
                           class="font-weight-black"
                           style="
+                            color: #fc9403;
                             -webkit-text-stroke-width: 1px;
                             -webkit-text-stroke-color: black;
                           "
@@ -155,7 +156,7 @@
                 outlined
                 large
               >
-                <span class="grey--text text--darken-1 font-weight-bold">
+                <span class="font-weight-bold" style="color: #fc9403">
                   Contact Us
                 </span>
               </v-btn>
@@ -168,7 +169,7 @@
             <div class="py-12"></div>
 
             <v-container class="text-center">
-              <h2 class="display-2 font-weight-bold mb-3">Services</h2>
+              <h2 class="display-2 font-weight-bold mb-3">SERVICES</h2>
 
               <v-responsive class="mx-auto mb-12" width="56">
                 <v-divider class="mb-1"></v-divider>
@@ -186,8 +187,8 @@
                   <v-card style="height: 100%" color="grey lighten-5" flat>
                     <v-theme-provider dark>
                       <div>
-                        <v-avatar color="primary" size="88">
-                          <v-icon large v-text="icon"></v-icon>
+                        <v-avatar color="black" size="88">
+                          <v-icon color="#fc9403" large v-text="icon"></v-icon>
                         </v-avatar>
                       </div>
                     </v-theme-provider>
@@ -220,6 +221,7 @@
 
             <v-container>
               <h2
+                style="color: #fc9403"
                 class="display-2 font-weight-bold mb-3 text-uppercase text-center"
               >
                 Contact Us
@@ -252,7 +254,7 @@
           </v-sheet>
         </v-content>
 
-        <v-footer class="justify-center" color="#292929" height="100">
+        <v-footer class="justify-center" color="black" height="100">
           <div
             class="title font-weight-light grey--text text--lighten-1 text-center"
           >
